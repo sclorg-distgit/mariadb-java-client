@@ -1,0 +1,31 @@
+diff -up mariadb-connector-j-2.7.1/src/main/java/org/mariadb/jdbc/internal/com/send/authentication/gssapi/GssUtility.java.patch0 mariadb-connector-j-2.7.1/src/main/java/org/mariadb/jdbc/internal/com/send/authentication/gssapi/GssUtility.java
+--- mariadb-connector-j-2.7.1/src/main/java/org/mariadb/jdbc/internal/com/send/authentication/gssapi/GssUtility.java.patch0	2020-12-10 21:04:22.902932157 +0100
++++ mariadb-connector-j-2.7.1/src/main/java/org/mariadb/jdbc/internal/com/send/authentication/gssapi/GssUtility.java	2020-12-10 21:06:46.303703168 +0100
+@@ -57,26 +57,11 @@ import com.sun.jna.Platform;
+ public class GssUtility {
+ 
+   /**
+-   * Get authentication method according to classpath. Windows native authentication is using
+-   * Waffle-jna.
++   * Get authentication method according to classpath.
+    *
+    * @return authentication method
+    */
+   public static GssapiAuth getAuthenticationMethod() {
+-    try {
+-      // Waffle-jna has jna as dependency, so if not available on classpath, just use standard
+-      // authentication
+-      if (Platform.isWindows()) {
+-        try {
+-          Class.forName("waffle.windows.auth.impl.WindowsAuthProviderImpl");
+-          return new WindowsNativeSspiAuthentication();
+-        } catch (ClassNotFoundException cle) {
+-          // waffle not in the classpath
+-        }
+-      }
+-    } catch (Throwable cle) {
+-      // jna jar's are not in classpath
+-    }
+     return new StandardGssapiAuthentication();
+   }
+ }

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xmlns="http://fedorahosted.org/xmvn/METADATA/2.0.0">
+  <artifacts>
+    <artifact>
+      <groupId>net.java.dev.jna</groupId>
+      <artifactId>jna</artifactId>
+      <extension>jar</extension>
+      <version>3.5.2</version>
+      <path>/usr/share/java/jna.jar</path>
+    </artifact>
+    <artifact>
+      <groupId>net.java.dev.jna</groupId>
+      <artifactId>jna-platform</artifactId>
+      <extension>jar</extension>
+      <version>3.5.2</version>
+      <path>/usr/share/java/jna/platform.jar</path>
+    </artifact>
+  </artifacts>
+</metadata>
